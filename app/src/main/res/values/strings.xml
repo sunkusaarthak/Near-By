@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Place</string>
+    <string name="title_activity_maps">Places</string>
+    <string name="pick_place">Place</string>
+    <string name="find_near_by">Find Near By</string>
+    <string name="find">Find</string>
+    <string name="code">AIzaSyDZEDamSTk38hHaUv6Ehrlak6NS6ZawyEU</string>
+    <string name="near_by">Near By</string>
+    <string name="type_near_by_places">Type Near By Places</string>
+</resources>
