@@ -11,7 +11,9 @@ This application is a part of my 'experiments with android', as I was learning a
     * XML
     * Google Cloud Place API. 
     * Fused Location Provider API. 
-    
+   
+## Working
+![new](https://user-images.githubusercontent.com/59611699/205653115-07a34ed3-2fb8-4a11-80c7-fdfd54367474.png)
 # How to use
 If you intend to experiment with what I have done, feel free to download and run it on your android device. The code is also available feel free to use it too. You just need a little knowledge of how to work with APIs to start working on something similar or take my app ahead. 
 
