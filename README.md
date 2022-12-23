@@ -55,6 +55,17 @@ If you intend to experiment with what I have done, feel free to download and run
 
 # Contribute
 
+## Prerequisite
+There are the Prerequisite you required to contribute to this project
+* Kotlin
+* Working with JSON Data
+* Knowledge on using API's
 
-
+## Getting Started
+1. Fork the Repo
+2. Download the Zip File 
+3. Add the project to your Android Studio from the extracted Files
+4. Solve the Issue 😉
+5. Push the changes to your GitHub 
+6. Open the Pull Request
 
