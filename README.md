@@ -3,17 +3,16 @@ It doesn't matter what you're looking for a restaurant, an ATM, or anything else
 
 # Table of Content
 - [Purpose](#purpose)
-- [Implementation](#implementation)
-    - [Purpose](#purpose)
-    - [Purpose](#purpose)
-    - [Purpose](#purpose)
-    - [Purpose](#purpose)
-- [Purpose](#purpose)
-- [Purpose](#purpose)
-- [Purpose](#purpose)
-- [Purpose](#purpose)
-    - [Purpose](#purpose)
-    - [Purpose](#purpose)
+- [Implementation](#techstack)
+    - [Tech Stack](#purpose)
+    - [Architecture](#architecture)
+    - [Key Design Decisions](#keydesigndecisions)
+- [Features](#features)
+- [Working](#working)
+- [How to Use](#howtouse)
+- [Contribute](#contribute)
+    - [Prerequisites](#prerequisite)
+    - [Getting Started](#gGettingstarted)
 
 
 # Purpose
@@ -28,7 +27,7 @@ As I was studying android development, I wanted to check out the Google cloud Pl
     * Fused Location Provider API.  
 ## Architecture
 The Nearby Places application follows a standard Android app architecture, with a single main activity and map fragments for displaying search results on map.
-## Key design decisions
+## Key Design Decisions
 Some of the key design decisions made during the development of the Nearby Places application include the use of the Google Cloud Place API for location search and the implementation of a map view to display search results.
 
 # Features
@@ -48,7 +47,7 @@ Technically, the application will aquire GPS Location, through Fused Location Pr
 3. Place API will return JSON data containing of locations near the user 
 4. Map will be updated with the Markers on the result locations
 
-# How to use
+# How to Use
 If you want to play around with what I've done, you may download and run it on your Android device. Please feel free to use the code as well. You only need a basic understanding of how to interact with APIs to begin working on something similar or to advance my programe check out [Contribute](#contribute) for more details
 
 1. Open the Application
@@ -81,7 +80,7 @@ If you want to play around with what I've done, you may download and run it on y
 
 # Contribute
 
-## Prerequisite
+## Prerequisites
 There are the Prerequisite you required to contribute to this project
 * Kotlin
 * Working with JSON Data
