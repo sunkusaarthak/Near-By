@@ -1,6 +1,21 @@
 # Introduction 
 It doesn't matter what you're looking for a restaurant, an ATM, or anything else as long as it's listed online, Nearby can help you locate it. Nearby is an android app. Anyone looking to quickly and conveniently discover local establishments, such as eateries, ATMs, or other areas of interest, should use the Nearby application.
 
+# Table of Content
+- [Purpose](#purpose)
+- [Implementation](#implementation)
+    - [Purpose](#purpose)
+    - [Purpose](#purpose)
+    - [Purpose](#purpose)
+    - [Purpose](#purpose)
+- [Purpose](#purpose)
+- [Purpose](#purpose)
+- [Purpose](#purpose)
+- [Purpose](#purpose)
+    - [Purpose](#purpose)
+    - [Purpose](#purpose)
+
+
 # Purpose
 As I was studying android development, I wanted to check out the Google cloud Place API, so I created this application as part of my "experiments with android". In order to understand how to deal with APIs and link Google Cloud services with Android, I constructed a simple application.
 
@@ -37,21 +52,32 @@ Technically, the application will aquire GPS Location, through Fused Location Pr
 If you want to play around with what I've done, you may download and run it on your Android device. Please feel free to use the code as well. You only need a basic understanding of how to interact with APIs to begin working on something similar or to advance my programe check out [Contribute](#contribute) for more details
 
 1. Open the Application
+
+    - A default Map will be shown
+    - You can Wait or Turn On the GPS by your self
+    <p>
+        <img src="https://user-images.githubusercontent.com/59611699/209367292-074457f5-340e-4c51-9eac-4f9a83bcfd3b.png" width="230" />
+    </p>
 2. Wait for Aquiring your Location
+
+    - FusedLocationProvider API will access the Location
+    <p>
+        <img src="https://user-images.githubusercontent.com/59611699/209367308-b0cd2ea0-2e5b-40dd-bd87-9242ee8a532d.png" width="230" />
+    </p>
 3. Search for any keyword like atm, restaurants, hotels...
+
+    - UserLocation along with the search Keyword is sent to Google Place API
+    - API processess the data and return a JSON File
+    <p>    
+        <img src="https://user-images.githubusercontent.com/59611699/209367314-032a01fb-fa1c-40db-bf82-22133cd76869.png" width="230"  />
+    </p>   
 4. Access Your Near By Locations
 
-<p float="left" align="center">
-
-  <img src="https://user-images.githubusercontent.com/59611699/209367292-074457f5-340e-4c51-9eac-4f9a83bcfd3b.png" width="300" />
-  <img src="https://user-images.githubusercontent.com/59611699/209367308-b0cd2ea0-2e5b-40dd-bd87-9242ee8a532d.png" width="300" />
-  
-  <br/>  
-  
-  <img src="https://user-images.githubusercontent.com/59611699/209367314-032a01fb-fa1c-40db-bf82-22133cd76869.png" width="300"  />
-  <img src="https://user-images.githubusercontent.com/59611699/209367321-f2f0b406-0347-4c2f-a49c-b0601b70eecb.png" width="300"  />
-
-</p>
+    - The locations returned by Place API are Marked on to the map
+    - and the Map is updated
+    <p>
+        <img src="https://user-images.githubusercontent.com/59611699/209367321-f2f0b406-0347-4c2f-a49c-b0601b70eecb.png" width="230"  />
+    </p>
 
 # Contribute
 
@@ -62,11 +88,12 @@ There are the Prerequisite you required to contribute to this project
 * Knowledge on using API's
 
 ## Getting Started
-1. Fork the Repo
-2. Download the Zip File 
-3. Add the project to your Android Studio from the extracted Files
-4. Add your API key in the local.properties file in the name API_KEY
-5. Solve the Issue 😉
-6. Push the changes to your GitHub 
-7. Open the Pull Request
+1. Clone the Project
+    -  `https://github.com/sunkusaarthak/Near-By.git`
+2. Add your API key in the local.properties file in the name API_KEY
+    <p>
+        <img src="https://user-images.githubusercontent.com/59611699/209823486-e7dc338a-db38-44fa-bc92-9f8de57c7963.png" width="500px"  />
+    </p>
+3. Solve the Issue 😉
+
 
