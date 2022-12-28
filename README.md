@@ -65,7 +65,8 @@ There are the Prerequisite you required to contribute to this project
 1. Fork the Repo
 2. Download the Zip File 
 3. Add the project to your Android Studio from the extracted Files
-4. Solve the Issue 😉
-5. Push the changes to your GitHub 
-6. Open the Pull Request
+4. Add your API key in the local.properties file in the name API_KEY
+5. Solve the Issue 😉
+6. Push the changes to your GitHub 
+7. Open the Pull Request
 
