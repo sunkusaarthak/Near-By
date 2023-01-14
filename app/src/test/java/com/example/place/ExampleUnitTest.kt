@@ -14,4 +14,10 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+
+    @Test
+    fun test_Lat_Long() {
+        val Check = CorrectLatLong()
+        assertEquals(true, Check.test("-33.8523341", "151.2106085"))
+    }
 }

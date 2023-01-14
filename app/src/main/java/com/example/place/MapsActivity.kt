@@ -1,6 +1,7 @@
 package com.example.place
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
@@ -119,6 +120,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         getLocationPermission()
     }
 
+    @SuppressLint("MissingPermission")
     private fun getDeviceLocation() {
         try {
             if (locationPermissionGranted) {
@@ -175,6 +177,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
     }
 
+    @SuppressLint("MissingPermission")
     private fun updateLocationUI() {
         if (map == null) {
             return
