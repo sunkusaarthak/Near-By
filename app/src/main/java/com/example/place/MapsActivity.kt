@@ -3,9 +3,9 @@ package com.example.place
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.IntentSender.SendIntentException
 import android.content.pm.PackageManager
 import android.location.Location
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
@@ -16,23 +16,29 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.place.Common.Common
 import com.example.place.Model.MyPlace
 import com.example.place.Remote.IGoogleAPIService
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.common.api.PendingResult
+import com.google.android.gms.common.api.ResultCallback
+import com.google.android.gms.common.api.Status
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.color.DynamicColors
 import retrofit2.Call
 import retrofit2.Response
+
 
 @Suppress("DEPRECATION")
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
@@ -154,6 +160,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED) {
             locationPermissionGranted = true
+            displayLocationSettingsRequest(applicationContext)
             updateLocationUI()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
@@ -273,4 +280,44 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
     override fun onMarkerClick(p0: Marker): Boolean = false
+
+    private fun displayLocationSettingsRequest(context: Context) {
+        val googleApiClient = GoogleApiClient.Builder(context)
+            .addApi(LocationServices.API).build()
+        googleApiClient.connect()
+        val locationRequest = LocationRequest.create()
+        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        locationRequest.interval = 10000
+        locationRequest.fastestInterval = 10000 / 2
+        val builder = LocationSettingsRequest.Builder().addLocationRequest(locationRequest)
+        builder.setAlwaysShow(true)
+        val result: PendingResult<LocationSettingsResult> =
+            LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build())
+        result.setResultCallback { result ->
+            val status: Status = result.status
+            when (status.statusCode) {
+                LocationSettingsStatusCodes.SUCCESS -> Log.i(
+                    TAG,
+                    "All location settings are satisfied."
+                )
+                LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
+                    Log.i(
+                        TAG,
+                        "Location settings are not satisfied. Show the user a dialog to upgrade location settings "
+                    )
+                    try {
+                        // Show the dialog by calling startResolutionForResult(), and check the result
+                        // in onActivityResult().
+                        status.startResolutionForResult(this@MapsActivity, 100)
+                    } catch (e: SendIntentException) {
+                        Log.i(TAG, "PendingIntent unable to execute request.")
+                    }
+                }
+                LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> Log.i(
+                    TAG,
+                    "Location settings are inadequate, and cannot be fixed here. Dialog not created."
+                )
+            }
+        }
+    }
 }
