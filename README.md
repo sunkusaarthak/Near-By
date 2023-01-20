@@ -57,7 +57,7 @@ If you want to play around with what I've done, you may download and run it on y
     <p>
         <img src="https://user-images.githubusercontent.com/59611699/209367292-074457f5-340e-4c51-9eac-4f9a83bcfd3b.png" width="230" />
     </p>
-2. Wait for Aquiring your Location
+2. Wait for Acquiring your Location
 
     - FusedLocationProvider API will access the Location
     <p>
